@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+	
+	margin: 0;
+}
+
+.users {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+	min-width: 214px;
+}

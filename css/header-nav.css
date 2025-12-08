@@ -1,0 +1,120 @@
+/* ширина окна, когда задействуется nav_btn, прячется меню */
+@media (width <= 1100px) {
+    .header_w {
+        align-items:center;
+        align-content: center;
+        height: 60px
+    }
+
+    .header .nav {
+        padding-right: 0;
+        padding-left: 0;
+        position: relative
+    }
+
+    .header .nav_btn {
+        position: relative;
+        width: 40px;
+        height: 40px
+    }
+
+    .header .nav_btn span {
+        display: block;
+        height: 2px;
+        background-color: #333;
+        width: 20px;
+        position: absolute;
+        left: 10px;
+        transition-timing-function: ease;
+        transition-duration: .2s
+    }
+
+    .header .nav_btn span:nth-child(1) {
+        transform: translate3d(0,11px,0) rotate(0)
+    }
+
+    .header .nav_btn span:nth-child(2) {
+        top: 19px
+    }
+
+    .header .nav_btn span:nth-child(3) {
+        transform: translate3d(0,27px,0) rotate(0)
+    }
+
+    .header .nav .nav_list.hide {
+        display: none
+    }
+
+    .header .nav .nav_list .mask {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 98;
+        background-color: rgba(0,0,0,.4)
+    }
+
+    .header .nav .nav_list .nav_c {
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+        border-radius: 0;
+        background-color: #fff;
+        width: 60%
+    }
+
+    .header .nav .nav_list .nav_c .close_bar {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        height: 60px
+    }
+
+    .header .nav .nav_list .nav_c .close_bar .close_btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin: 0 10px 0 auto
+    }
+
+    .header .nav .nav_list .nav_c .close_bar .close_btn span {
+        display: block;
+        height: 2px;
+        background-color: #333;
+        width: 20px;
+        position: absolute;
+        left: 10px;
+        transition-timing-function: ease;
+        transition-duration: .2s
+    }
+
+    .header .nav .nav_list .nav_c .close_bar .close_btn span:nth-child(1) {
+        transform: translate3d(0,19px,0) rotate(135deg)
+    }
+
+    .header .nav .nav_list .nav_c .close_bar .close_btn span:nth-child(2) {
+        opacity: 0
+    }
+
+    .header .nav .nav_list .nav_c .close_bar .close_btn span:nth-child(3) {
+        transform: translate3d(0,19px,0) rotate(-135deg)
+    }
+
+    .header .nav .nav_list .nav_c .nav_link {
+        padding: 1rem
+    }
+
+    .header .nav .nav_list .nav_c .nav_link a {
+        display: block;
+        height: 3rem;
+        line-height: 3rem;
+        font-weight: normal
+    }
+}

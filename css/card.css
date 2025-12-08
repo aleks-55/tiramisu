@@ -1,0 +1,40 @@
+.card {
+    width: max-content;
+	margin: 7px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 9px;
+	
+	display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 5px 8px;
+}
+
+.wrapper-icons {
+    display: flex;
+}
+
+.wrapper-icons, .username, .fullname {
+	margin: 4px;
+}
+
+.username::before {
+	content: "@"
+}
+
+/* --------- */
+.icon {
+	width: 27px;
+    height: 27px;
+	background-size: 100%;
+    display: inline-block;
+	margin: 0 4px;
+}
+.icon > a {
+	display: block;
+    height: 100%;
+}
+
+.users .icon {
+	display: none;
+}

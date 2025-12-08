@@ -1,0 +1,40 @@
+.header {
+	height: 64px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+	
+	width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+	
+	margin-bottom: 20px;
+}
+
+.logo {
+	flex-shrink: 0; /* нельзя сжимать эл.*/
+	flex-grow: 1; /* оставить для эл. место */
+	height: 100%;
+}
+
+.logo img {
+	height: 100%;
+}
+
+/*@media (width < 1050px) {
+	.header .nav .nav_list {
+        display: none;
+    }
+}*/
+
+@media (width <= 1220px) {
+    .header {
+        width:96%
+    }
+}
+
+@media (width <= 576px) {
+    .header {
+        width:100%
+    }
+}
