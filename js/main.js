@@ -25,7 +25,7 @@ class User extends Alfa {
 	constructor(username, fullname) {
 		super()
 		this.username = username
-		this.fullname = fullname
+		fullname && (this.fullname = fullname)
 		
 		let user = document.createElement('div')
 		user.classList.add('user')
@@ -78,10 +78,6 @@ class Site extends Alfa {
 
 		return style
 	}
-
-	toString() {
-		return this.patternUrl
-	}
 }
 
 function createIcon(id, link) {
@@ -105,10 +101,4 @@ function checkboxClick() {
 	} else {
 		usersDiv.classList.remove(className)
 	}
-}
-
-function getRandomIntInclusive(min, max) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min + 1) + min); // Максимум и минимум включаются
 }

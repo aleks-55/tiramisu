@@ -11,22 +11,21 @@
 
 
     <script>
-      document
-        .getElementById("fileInput").addEventListener("change", function (event) {
-          const file = event.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              try {
-                const data = JSON.parse(e.target.result);
-                displayProducts(data.products);
-              } catch (error) {
-                console.error("Error parsing JSON:", error);
-              }
-            };
-            reader.readAsText(file);
-          }
-        });
+      document.getElementById("fileInput").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            try {
+              const data = JSON.parse(e.target.result);
+              displayProducts(data.products);
+            } catch (error) {
+              console.error("Error parsing JSON:", error);
+            }
+          };
+          reader.readAsText(file);
+        }
+      });
 
 
       function displayProducts(products) {
