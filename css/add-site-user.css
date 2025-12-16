@@ -24,14 +24,13 @@
     overflow-y: auto;
     background-color: #fff;
     width: 650px;
-    padding: 30px;
+    padding: 10px 30px;
     border-radius: 9px;
     box-shadow: 8px 11px 8px 5px rgba(34, 60, 80, 0.2);
 }
 
-.pole span, .pole input, .pole button {
-    font-size: medium;
-    margin: 8px 0;
+.pole input, .pole textarea, .pole button {
+    font-size: 16px;
 }
 
 /*  */

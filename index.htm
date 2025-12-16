@@ -37,13 +37,13 @@
 				</div>
 			  </div>
 			  <div class="nav_link">
-				<div class="box" id="btn-add-site">
+				<div class="box" id="nav-btn-add-site">
 					<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1920 1920">
 						<path d="M840 0v840H0v240h840v840h240v-840h840V840h-840V0z" fill-rule="evenodd"/>
 					</svg>
 					Добавить сайт
 				</div>
-				<div class="box" id="btn-add-users">
+				<div class="box" id="nav-btn-add-users">
 					<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1920 1920">
 						<path d="M840 0v840H0v240h840v840h240v-840h840V840h-840V0z" fill-rule="evenodd"/>
 					</svg>
@@ -96,33 +96,30 @@
 	<div class="add hidden" id="add-site">
 		<div class="mask"></div>
 		<div class="pole">
-			<form>
-				<span>Добавь новый сайт-посредник: создайте на нем запрос «TEST» и скопируйте полный URL-адрес результатов сюда.</span>
-				<input id="myURL" type="url" size="71" pattern="https?://.*TEST.*"
-					placeholder="https://example.com/TEST" required />
+			<p><label for="myURL">Добавьте новый сайт-посредник: создайте на нем запрос «TEST» и скопируйте полный URL-адрес
+					результатов сюда:</label></p>
+			<p><input id="myURL" type="url" size="71" pattern="https?://.*TEST.*" placeholder="https://example.com/TEST" required />
 				<span class="validity"></span>
-				<button>Добавить</button>
-			</form>
+			</p>
+			<p><button id="btn-add-site">Добавить</button></p>
 		</div>
 	</div>
 
 	<div class="add hidden" id="add-users">
 		<div class="mask"></div>
 		<div class="pole">
-			<form>
-				<span>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Добавь новый сайт-посредник: создайте на нем запрос «TEST» и скопируйте полный URL-адрес результатов
-					сюда.</span>
-				<input id="myURL" type="url" size="71" pattern="https?://.*TEST.*" placeholder="https://example.com/TEST"
-					required />
-				<span class="validity"></span>
-				<button>Добавить</button>
-			</form>
+			<p>Добавьте пользователей в формате</p>
+					<i><ul><li>username полное имя</li></ul></i>
+					или
+					<i><ul><li>@username полное имя</li></ul></i>
+			<p><textarea id="story" rows="12" cols="70"></textarea></p>
+			<p><button id="btn-add-users">Добавить</button></p>
 		</div>
 	</div>
 
     <script src="js/initDB.js"></script>
-    <script src="js/nav_btn.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/classCard.js"></script>
+    <script src="js/classTiramisuDB.js"></script>
     <script src="js/additional.js"></script>
     <script src="js/init.js"></script>
 </body>

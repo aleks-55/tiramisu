@@ -6,8 +6,39 @@
 	
 	display: flex;
     flex-direction: column;
-    /* align-items: center; */
     padding: 5px 8px;
+    position: relative;
+}
+
+.card:hover .delete {
+    display: block;
+}
+
+.delete {
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff99;
+    border-radius: 50%;
+    right: -9px;
+    top: -9px;
+    display: none;
+    position: absolute;
+}
+
+.delete span {
+        display: block;
+        height: 2px;
+        background-color: #333;
+        width: 25px;
+        position: absolute;
+}
+
+.card:hover .delete span:nth-child(1) {
+        transform: translate3d(0,12.5px,0) rotate(135deg);
+}
+
+.card:hover .delete span:nth-child(2) {
+        transform: translate3d(0,12.5px,0) rotate(-135deg)
 }
 
 .wrapper-icons {

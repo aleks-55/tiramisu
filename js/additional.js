@@ -6,7 +6,7 @@ function download(data, MIMEtype, filename) {
 	tagA.href = textFileUrl
 	tagA.download = filename
 
-    console.log('Для отладки: скачиваем файл с помощью тега A')
+    console.log('Скачиваем файл с помощью тега A')
 	console.log(tagA)
 	tagA.click()
 
