@@ -75,12 +75,15 @@ document.querySelector("#add-users .mask").addEventListener("click", () => {
 document.getElementById("btn-add-site").addEventListener('click', clickBtnAddSite)
 
 // нажатие Enter в поле ввода url
-document.getElementById('myURL').addEventListener('keydown', (e) => {
+document.getElementById('myUrl').addEventListener('keydown', (e) => {
 	(e.code === 'Enter') && clickBtnAddSite()
 })
 
+// кнопка "Добавить" в форме "добавить пользователей"
+document.getElementById("btn-add-users").addEventListener('click', clickBtnAddUsers)
+
 function clickBtnAddSite() {
-	let inputUrl = document.getElementById('myURL')
+	let inputUrl = document.getElementById('myUrl')
 	let validity = inputUrl.validity
 	if ( !validity.valid ) {
 		if (validity.valueMissing) {
@@ -105,6 +108,24 @@ function clickBtnAddSite() {
 	} else {
 		console.log('Такой сайт-посредник уже есть на странице (url полностью совпадает).')
 		alert('Такой сайт-посредник уже есть на странице (url полностью совпадает).')
+	}
+}
+
+function clickBtnAddUsers() {
+	console.log('добавляем пользователей')
+	let initUsers = document.getElementById('myUsers')
+
+	let users = initUsers.value.split('\n')
+	let regexpUser = /^@?(\w{1}[\w.]{1,28}\w{1})(\s+(.+)|\s+|)$/
+	for (let u of users) {
+		// console.log(u)
+		let uArr =  u.match(regexpUser)
+		if (uArr) {
+			let username = uArr[1]
+			let fullname = uArr[3]
+			// console.log(`username: ${username}\nfullname: ${fullname}`)
+			tiramisuDB.addUser(username, fullname, true)
+		}
 	}
 }
 

@@ -58,7 +58,7 @@ class User extends Card {
 	setFullname(fullname) {
 		if (!fullname) {
 			console.log('fullname не пределен')
-			return
+			return false
 		}
 
 		this.fullname = fullname
@@ -66,6 +66,7 @@ class User extends Card {
 		divFullname.classList.add('fullname')
 		divFullname.innerText = fullname
 		this._div.querySelector('.username').after(divFullname)
+		return true
 	}
 }
 

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
 	<title>Tiramisu</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/users.css">
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/main-section.css">
@@ -98,7 +99,7 @@
 		<div class="pole">
 			<p><label for="myURL">Добавьте новый сайт-посредник: создайте на нем запрос «TEST» и скопируйте полный URL-адрес
 					результатов сюда:</label></p>
-			<p><input id="myURL" type="url" size="71" pattern="https?://.*TEST.*" placeholder="https://example.com/TEST" required />
+			<p><input id="myUrl" type="url" size="71" pattern="https?://.*TEST.*" placeholder="https://example.com/TEST" required />
 				<span class="validity"></span>
 			</p>
 			<p><button id="btn-add-site">Добавить</button></p>
@@ -112,7 +113,7 @@
 					<i><ul><li>username полное имя</li></ul></i>
 					или
 					<i><ul><li>@username полное имя</li></ul></i>
-			<p><textarea id="story" rows="12" cols="70"></textarea></p>
+			<p><textarea id="myUsers" rows="12" cols="70" spellcheck="false"></textarea></p>
 			<p><button id="btn-add-users">Добавить</button></p>
 		</div>
 	</div>

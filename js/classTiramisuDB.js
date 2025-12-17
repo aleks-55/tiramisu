@@ -54,7 +54,10 @@ class TiramisuDB {
                 if (u.deleted) continue
                 if (username === u.username) {
                     if (!u.fullname && fullname) {
-                        u.setFullname(fullname)
+                        u.setFullname(fullname) &&
+                        console.log(`UPDATE user ${username}`)
+                    } else {
+                        console.log(`User ${username} NOT updated.`)
                     }
                     return
                 }
@@ -69,5 +72,6 @@ class TiramisuDB {
         }
 
         document.querySelector('.users').append(user.getDivObject())
+        console.log(`Add user ${username}`)
     }
 }

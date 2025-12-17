@@ -1,35 +1,35 @@
 /* описано состояние колонок внутри .main-section при разной ширине окна */
 
 /* большой макет */
-@media (width >= 1760px) {
+@media (width >= 1540px) {
 	.select-sites {
-		width: 440px
+		width: 330px
 	}
 	
 	.about {
-		width: 500px
+		width: 360px
 	}
 }
 
 /* средний макет */
-@media (1220px < width < 1760px) {
+@media (1110px < width < 1540px) {
 	.select-sites {
-		width: 440px
+		width: 330px
 	}
 	
 	.about {
-		width: 1132px;
+		width: 912px;
 	}
 }
 
 /* малый макет */
-@media (width <= 1220px) {
+@media (width <= 1110px) {
 	.select-sites {
-		width: 660px
+		width: 550px
 	}
 	
 	.about {
-		width: 660px
+		width: 550px
 	}
 	
 	.users {
@@ -45,7 +45,7 @@
 }
 
 .users {
-	width: 660px
+	width: 550px
 }
 
 /* границы, отступы дочерних блоков */
