@@ -52,6 +52,6 @@
 .select-sites, .users, .about {
 	border: 1px solid rgb(192, 192, 192);
 	margin: 5px;
-	padding: 0 10px;
+	padding: 10px;
 	border-radius: 9px;
 }

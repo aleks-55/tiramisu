@@ -17,9 +17,9 @@ document.getElementById('download_to_file').addEventListener('click', downloadTo
 function downloadToFile() {
 	hide_nav_list()
 
-	let data = tiramisuDB.toString()
-	let MimeType = 'application/json'
-	let filename = 'tiramisuDB'
+	let data = 'let initDB = ' + tiramisuDB.toString()
+	let MimeType = 'text/javascript'
+	let filename = 'tiramisu-init'
 
 	download(data, MimeType, filename)
 }
@@ -33,13 +33,15 @@ function changeFileInput(event) {
 	if (file) {
 		const reader = new FileReader()
 		reader.onload = (e) => {
+			let data
 			try {
-				const data = JSON.parse(e.target.result);
-				console.log(data)
-				tiramisuDB.addDB(data)
+				data = JSON.parse(e.target.result.replace('let initDB = ', ''));
 			} catch (error) {
 				console.error("Error parsing JSON:", error)
+				return
 			}
+			console.log(data)
+			tiramisuDB.addDB(data)
 		}
 		reader.readAsText(file)
 	}

@@ -15,6 +15,7 @@
 }
 
 .delete {
+    cursor: pointer;
     width: 25px;
     height: 25px;
     background-color: #ffffff99;
@@ -42,10 +43,25 @@
 }
 
 .wrapper-icons {
-    display: flex;
+    display: none;
 }
 
-.wrapper-icons, .username, .fullname {
+.card:hover .wrapper-icons {
+    display: flex;
+    position: absolute;
+    left: -9px;
+    bottom: -41px;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0  4px 8px 4px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 9px;
+    border-top: none;
+    border-top-right-radius: unset;
+    border-top-left-radius: unset;
+}
+
+.username, .fullname {
 	margin: 4px;
 }
 
@@ -67,5 +83,11 @@
 }
 
 .users .icon {
+    height: 32px;
+    width: 32px;
 	display: none;
+}
+
+.user {
+    position: relative;
 }

@@ -1,5 +1,5 @@
 /* ширина окна, когда задействуется nav_btn, прячется меню */
-@media (width <= 1120px) {
+@media (width <= 1130px) {
     .header_w {
         align-items:center;
         align-content: center;
@@ -119,7 +119,7 @@
     }
 }
 
-@media (width > 1120px) {
+@media (width > 1130px) {
     .header .nav .nav_list .nav_c .nav_link .box {
         display: inline-block;
         padding: 15px 5px;

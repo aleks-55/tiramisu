@@ -29,11 +29,11 @@
 	height: 100%;
 }
 
-/*@media (width < 1050px) {
-	.header .nav .nav_list {
-        display: none;
-    }
-}*/
+@media (width >= 1540px) {
+	.header {
+		width: 1307px;
+	}
+}
 
 @media (width <= 1220px) {
     .header {
