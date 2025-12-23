@@ -43,7 +43,8 @@ function changeFileInput(event) {
 				let htmlText = e.target.result
 				let newDocument = new DOMParser().parseFromString(htmlText, 'text/html')
 				let elemDB = newDocument.getElementById('tiramisuJsonFile')
-				data = elemDB.innerHTML.replace('let initDB = ', '')
+				let str = elemDB.innerHTML.replace('let initDB = ', '')
+				data = JSON.parse(str)
 			} catch (error) {
 				console.error("Error parsing HTML: ", error)
 				return
