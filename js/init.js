@@ -14,18 +14,23 @@ document.getElementById("close_btn_nav").addEventListener("click", hide_nav_list
 
 document.getElementById('download_to_file').addEventListener('click', downloadToFile)
 
-function downloadToFile() {
+async function downloadToFile() {
 	hide_nav_list()
+	let data = await createPortableTiramisu()
+	if ( ! data ) {
+		console.log('Не удалось сохранить страницу. Посетите https://aleks-55.github.io/tiramisu/')
+		alert('Не удалось сохранить страницу. Посетите https://aleks-55.github.io/tiramisu/')
+		return
+	}
+	let mimeType = 'text/html'
+	let filename = 'tiramisu-' + getDate() + '.html'
 
-	let data = 'let initDB = ' + tiramisuDB.toString()
-	let MimeType = 'text/javascript'
-	let filename = 'tiramisu-init'
-
-	download(data, MimeType, filename)
+	download(data, mimeType, filename)
 }
 
 document.getElementById("fileInput").addEventListener("change", changeFileInput, Event)
-	
+
+// открытие файла
 function changeFileInput(event) {
 	hide_nav_list()
 
@@ -35,9 +40,12 @@ function changeFileInput(event) {
 		reader.onload = (e) => {
 			let data
 			try {
-				data = JSON.parse(e.target.result.replace('let initDB = ', ''));
+				let htmlText = e.target.result
+				let newDocument = new DOMParser().parseFromString(htmlText, 'text/html')
+				let elemDB = newDocument.getElementById('tiramisuJsonFile')
+				data = elemDB.innerHTML.replace('let initDB = ', '')
 			} catch (error) {
-				console.error("Error parsing JSON:", error)
+				console.error("Error parsing HTML: ", error)
 				return
 			}
 			console.log(data)

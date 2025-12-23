@@ -1,3 +1,10 @@
+body {
+    overflow: hidden;
+}
+body:has(.add.hidden + .add.hidden) {
+    overflow: visible;
+}
+
 .add {
     position: fixed;
     display: flex;
