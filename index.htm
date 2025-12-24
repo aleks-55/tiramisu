@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/header-nav.css">
     <link rel="stylesheet" href="css/add-site-user.css">
+    <link rel="stylesheet" href="css/panelFullscreenDrop.css">
 	<link rel="stylesheet" href="css/footer.css">
 </head>
 
@@ -104,6 +105,9 @@
 			<p><input id="myUrl" type="url" size="71" pattern="https?://.*TEST.*" placeholder="https://example.com/TEST" required />
 				<span class="validity"></span>
 			</p>
+			<p>Например:<br>
+				<span class="example">https://www.instagram.com/TEST/</span>
+			</p>
 			<p><button id="btn-add-site">Добавить</button></p>
 		</div>
 	</div>
@@ -117,6 +121,17 @@
 					<i><ul><li>@username полное имя</li></ul></i>
 			<p><textarea id="myUsers" rows="12" cols="70" spellcheck="false"></textarea></p>
 			<p><button id="btn-add-users">Добавить</button></p>
+		</div>
+	</div>
+
+	<div class="Overlay Overlay_paranja_translucent PanelFullscreenDrop-Overlay" id="PanelFullscreenDrop" role="dialog"
+		tabindex="-1" aria-modal="true">
+		<div class="PanelFullscreenDrop-Content">
+			<div class="PanelFullscreenDrop-Title">
+				Перетащите файл Tiramisu сюда
+			</div>
+		</div>
+		<div id="DropArea" class="PanelDropArea PanelFullscreenDrop-Area">
 		</div>
 	</div>
 

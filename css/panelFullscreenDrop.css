@@ -1,0 +1,62 @@
+/* -------------главный-------------------- */
+#PanelFullscreenDrop.visible {
+    display: block;
+}
+
+.PanelFullscreenDrop-Overlay {
+    z-index: 30000;
+    padding: 42px;
+}
+
+.Overlay_paranja_translucent {
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    outline: 0;
+}
+
+/* ------------------Content------------------------ */
+.PanelFullscreenDrop-Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 2px dashed #fff;
+    border-radius: 12px;
+}
+
+/* -------------------Title надпись--------------------- */
+.PanelFullscreenDrop-Title {
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+    .PanelFullscreenDrop-Title {
+        font-size: 36px;
+    }
+}
+
+/* ----------------Fullscreen-------------------------- */
+.PanelFullscreenDrop-Area {
+    cursor: pointer;
+}
+
+.PanelDropArea {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

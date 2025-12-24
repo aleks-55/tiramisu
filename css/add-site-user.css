@@ -1,6 +1,7 @@
 body {
     overflow: hidden;
 }
+
 body:has(.add.hidden + .add.hidden) {
     overflow: visible;
 }
@@ -37,31 +38,37 @@ body:has(.add.hidden + .add.hidden) {
     box-shadow: 8px 11px 8px 5px rgba(34, 60, 80, 0.2);
 }
 
-.pole input, .pole textarea, .pole button {
+.pole input,
+.pole textarea,
+.pole button {
     font-size: 16px;
+}
+
+.pole .example {
+    font-style: italic;
+    font-size: 17px;
 }
 
 /*  */
 
 #add-site input:focus:invalid {
-  outline: 2px solid red;
+    outline: 2px solid red;
 }
 
 #add-site input:focus:valid {
-  outline: 2px solid green;
+    outline: 2px solid green;
 }
 
-#add-site input + span {
-  padding: 0 0.3rem;
+#add-site input+span {
+    padding: 0 0.3rem;
 }
 
-#add-site input:invalid + span::after {
-  content: "✖" / "Content is not valid";
-  color: red;
+#add-site input:invalid+span::after {
+    content: "✖" / "Content is not valid";
+    color: red;
 }
 
-#add-site input:valid + span::after {
-  content: "✓" / "Content is valid";
-  color: green;
+#add-site input:valid+span::after {
+    content: "✓" / "Content is valid";
+    color: green;
 }
-

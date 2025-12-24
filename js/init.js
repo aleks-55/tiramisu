@@ -28,7 +28,7 @@ async function downloadToFile() {
 	download(data, mimeType, filename)
 }
 
-document.getElementById("fileInput").addEventListener("change", changeFileInput, Event)
+document.getElementById("fileInput").addEventListener("change", changeFileInput)
 
 // открытие файла
 function changeFileInput(event) {
@@ -36,24 +36,29 @@ function changeFileInput(event) {
 
 	const file = event.target.files[0]
 	if (file) {
-		const reader = new FileReader()
-		reader.onload = (e) => {
-			let data
-			try {
-				let htmlText = e.target.result
-				let newDocument = new DOMParser().parseFromString(htmlText, 'text/html')
-				let elemDB = newDocument.getElementById('tiramisuJsonFile')
-				let str = elemDB.innerHTML.replace('let initDB = ', '')
-				data = JSON.parse(str)
-			} catch (error) {
-				console.error("Error parsing HTML: ", error)
-				return
-			}
-			console.log(data)
-			tiramisuDB.addDB(data)
-		}
-		reader.readAsText(file)
+		readTiramisuFile(file)
 	}
+}
+
+function readTiramisuFile(file) {
+	const reader = new FileReader()
+	reader.onload = (e) => {
+		let data
+		try {
+			let htmlText = e.target.result
+			let newDocument = new DOMParser().parseFromString(htmlText, 'text/html')
+			let elemDB = newDocument.getElementById('tiramisuJsonFile')
+			let str = elemDB.innerHTML.replace('let initDB = ', '')
+			data = JSON.parse(str)
+		} catch (error) {
+			console.error("Error parsing HTML or JSON: ", error)
+			return
+		}
+		console.log('JSON of file:')
+		console.log(data)
+		tiramisuDB.addDB(data)
+	}
+	reader.readAsText(file)
 }
 
 // кнопка "Добавить сайт" в навигационной панели
