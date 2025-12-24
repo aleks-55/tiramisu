@@ -12,21 +12,7 @@ document.getElementById("nav_btn").addEventListener("click", () => {
 document.querySelector(".nav .nav_list .mask").addEventListener("click", hide_nav_list),
 document.getElementById("close_btn_nav").addEventListener("click", hide_nav_list)
 
-document.getElementById('download_to_file').addEventListener('click', downloadToFile)
-
-async function downloadToFile() {
-	hide_nav_list()
-	let data = await createPortableTiramisu()
-	if ( ! data ) {
-		console.log('Не удалось сохранить страницу. Посетите https://aleks-55.github.io/tiramisu/')
-		alert('Не удалось сохранить страницу. Посетите https://aleks-55.github.io/tiramisu/')
-		return
-	}
-	let mimeType = 'text/html'
-	let filename = 'tiramisu-' + getDate() + '.html'
-
-	download(data, mimeType, filename)
-}
+document.getElementById('download_to_file').addEventListener('click', downloadTiramisu)
 
 document.getElementById("fileInput").addEventListener("change", changeFileInput)
 
@@ -38,27 +24,6 @@ function changeFileInput(event) {
 	if (file) {
 		readTiramisuFile(file)
 	}
-}
-
-function readTiramisuFile(file) {
-	const reader = new FileReader()
-	reader.onload = (e) => {
-		let data
-		try {
-			let htmlText = e.target.result
-			let newDocument = new DOMParser().parseFromString(htmlText, 'text/html')
-			let elemDB = newDocument.getElementById('tiramisuJsonFile')
-			let str = elemDB.innerHTML.replace('let initDB = ', '')
-			data = JSON.parse(str)
-		} catch (error) {
-			console.error("Error parsing HTML or JSON: ", error)
-			return
-		}
-		console.log('JSON of file:')
-		console.log(data)
-		tiramisuDB.addDB(data)
-	}
-	reader.readAsText(file)
 }
 
 // кнопка "Добавить сайт" в навигационной панели
