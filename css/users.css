@@ -5,11 +5,11 @@ body {
 	margin: 0;
 }
 
-.users {
+/* .users {
 	display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+} */
 
 .card {
 	min-width: 214px;

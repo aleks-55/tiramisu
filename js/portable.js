@@ -28,10 +28,10 @@ async function createPortableTiramisu() {
     for (let link of cssLinks) {
         let url = link.href
         let response = await fetch(url)
-        let css = await response.text()
+        let textCss = await response.text()
 
         let cssTag = document.createElement('style')
-        cssTag.innerHTML = css
+        cssTag.innerHTML = textCss
         cssTag.dataset.file = url
         documentCopy.head.append(cssTag)
         link.remove()
@@ -73,7 +73,7 @@ async function createPortableTiramisu() {
 
 function documentToString(doc) {
     return `<!DOCTYPE html><html>
-            ${doc.querySelector('html').innerHTML}
+            ${doc.documentElement.innerHTML}
             </html>`
 }
 

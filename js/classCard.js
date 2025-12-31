@@ -8,6 +8,7 @@ class Card {
 		card.append(divDelete)
 		divDelete.classList.add('delete')
 		divDelete.innerHTML = '<span></span><span></span>'
+		divDelete.title = 'Удалить'
 		divDelete.addEventListener('click', () => {
 			this.deleted = true
 			this._div.remove()

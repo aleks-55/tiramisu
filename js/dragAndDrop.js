@@ -1,5 +1,15 @@
+// место сброса
 let dropArea = document.getElementById('DropArea');
+// сама панель - со всеми элементами, текстом
 let panelFullscreenDrop = document.getElementById('PanelFullscreenDrop');
+
+// начинаем показывать панель
+document.body.addEventListener('dragenter', (e) => {
+    // если перетаскиваемый элемент — файл
+    if (e.dataTransfer.types.indexOf('Files') !== -1) {
+        highlight()
+    }
+});
 
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     dropArea.addEventListener(eventName, preventDefaults)
@@ -23,8 +33,6 @@ function highlight(e) {
 function unhighlight(e) {
     panelFullscreenDrop.classList.remove('visible')
 }
-
-document.body.addEventListener('dragenter', highlight)
 
 dropArea.addEventListener('drop', handleDrop);
 

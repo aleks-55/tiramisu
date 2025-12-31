@@ -55,3 +55,9 @@
 	padding: 10px;
 	border-radius: 9px;
 }
+
+.select-sites,
+.about {
+	position: sticky;
+    top: 85px;
+}

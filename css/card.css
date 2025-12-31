@@ -1,13 +1,26 @@
 .card {
-    width: max-content;
-	margin: 7px;
+    /* width: max-content; */
+	/* margin: 7px; */
     border: 1px solid rgb(192, 192, 192);
-    border-radius: 9px;
+    border-bottom-width: 0px;
+    /* border-radius: 9px; */
 	
 	display: flex;
     flex-direction: column;
     padding: 5px 8px;
     position: relative;
+}
+
+.card:last-child {
+    border-bottom-width: 1px;
+}
+
+.card:nth-child(odd) {
+    background-color: #efefef;
+}
+
+.card:nth-child(even) {
+    background-color: #e1e5e8;
 }
 
 .card:hover .delete {
@@ -20,16 +33,25 @@
     height: 25px;
     background-color: #ffffff99;
     border-radius: 50%;
-    right: -9px;
-    top: -9px;
     display: none;
     position: absolute;
+
+    top: 5px;
+    z-index: 1;
+}
+
+.users .delete {
+    left: -10px;
+}
+
+.select-sites .delete {
+    right: -10px;
 }
 
 .delete span {
         display: block;
-        height: 2px;
-        background-color: #333;
+        height: 2.5px;
+        background-color: #cb2727;
         width: 25px;
         position: absolute;
 }
@@ -43,6 +65,11 @@
 }
 
 .wrapper-icons {
+    position: relative;
+    float: right;
+}
+
+/* .wrapper-icons {
     display: none;
 }
 
@@ -59,7 +86,7 @@
     border-top: none;
     border-top-right-radius: unset;
     border-top-left-radius: unset;
-}
+} */
 
 .username, .fullname {
 	margin: 4px;

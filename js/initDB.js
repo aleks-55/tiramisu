@@ -5,6 +5,9 @@ let initDB = {
   },
   {
    "patternUrl": "https://www.pixnoy.com/profile/TEST/"
+  },
+  {
+   "patternUrl": "https://storynavigation.com/ru/user/TEST/"
   }
  ],
  "users": [
@@ -17,11 +20,12 @@ let initDB = {
    "fullname": "Алена Савченко"
   },
   {
-   "username": "_._illona_._"
+   "username": "_._illona_._",
+   "fullname": "Иллона Осинская. Психолог."
   },
   {
    "username": "kristinaalb_",
-   "fullname": "Кристина Альб"
+   "fullname": "Kristina Albertovna"
   },
   {
    "username": "nastyavitskop",
@@ -29,7 +33,7 @@ let initDB = {
   },
   {
    "username": "angelina_aisman",
-   "fullname": "Angelina Aisman"
+   "fullname": "Angelina Aisman 😇🪬"
   },
   {
    "username": "anastasia_sobol",
@@ -41,26 +45,27 @@ let initDB = {
   },
   {
    "username": "karolinochkaa",
-   "fullname": "КАРОЛИНА"
+   "fullname": "Karolina Kondrateva"
   },
   {
    "username": "oriolamarashi",
    "fullname": "Oriola Marashi"
   },
   {
-   "username": "misskatrin01"
+   "username": "misskatrin01",
+   "fullname": "Katrin Grigorenko"
   },
   {
    "username": "irina8antonenko",
-   "fullname": "Irina Antonenko"
+   "fullname": "Irina Antonenko (Tósha)"
   },
   {
    "username": "liana.mateju",
-   "fullname": "LIANA MATĚJŮ (Vasilišinová)"
+   "fullname": "♛ • ℒ ℳ • ♛ 𝐋𝐈𝐀𝐍𝐀 𝐌𝐀𝐓𝐄̌𝐉𝐔̊ ☆"
   },
   {
    "username": "_veronika.gvs_",
-   "fullname": "Veronika ✈️☀️Private FA"
+   "fullname": "Veronika"
   },
   {
    "username": "marie_aleksandrovna",
@@ -68,7 +73,7 @@ let initDB = {
   },
   {
    "username": "violetdenier",
-   "fullname": "Violet 🌱"
+   "fullname": "Violet Denier"
   },
   {
    "username": "d.khivintseva_",
@@ -83,10 +88,12 @@ let initDB = {
    "fullname": "Алина Засобина"
   },
   {
-   "username": "margolenser"
+   "username": "margolenser",
+   "fullname": "Маргарита Голубева"
   },
   {
-   "username": "mahlaghajaberi"
+   "username": "mahlaghajaberi",
+   "fullname": "MAHLAGHA ☽"
   },
   {
    "username": "ms.alinasanko",
@@ -97,16 +104,8 @@ let initDB = {
    "fullname": "Анастасия Витскоп"
   },
   {
-   "username": "angelina_aisman",
-   "fullname": "Ангелина Айсман"
-  },
-  {
-   "username": "yana.orfeeeva",
-   "fullname": "Яна Орфеева"
-  },
-  {
-   "username": "karolinochkaa",
-   "fullname": "Karolina Kondrateva"
+   "username": "yanaorf",
+   "fullname": "Yana"
   },
   {
    "username": "galina.dub",
@@ -117,25 +116,32 @@ let initDB = {
    "fullname": "Наталья Красавина (Nata Lee)"
   },
   {
-   "username": "shanicemessina"
+   "username": "shanicemessina",
+   "fullname": "Shanice Messina"
   },
   {
-   "username": "anastasiiya_richii"
+   "username": "anastasiiya_richii",
+   "fullname": "Anastasia Pog"
   },
   {
-   "username": "carina"
+   "username": "carina",
+   "fullname": "CARINA ZAVLINE"
   },
   {
-   "username": "svetlaya1118"
+   "username": "svetlaya1811",
+   "fullname": "Svetlaya1811"
   },
   {
-   "username": "marielobanova"
+   "username": "marielobanova",
+   "fullname": "MARIE LOBANOVA"
   },
   {
-   "username": "magic__atelier"
+   "username": "magic__atelier",
+   "fullname": "Magic Atelier® brand"
   },
   {
-   "username": "lovisabarkman"
+   "username": "lovisabarkman",
+   "fullname": "Lovisa Barkman"
   },
   {
    "username": "ari_maj",
@@ -144,6 +150,10 @@ let initDB = {
   {
    "username": "krystyna_pyszko",
    "fullname": "Krystyna Pyszková"
+  },
+  {
+   "username": "mgrigoreva_tv",
+   "fullname": "Мария Григорьева"
   }
  ]
 }

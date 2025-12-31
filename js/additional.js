@@ -1,5 +1,5 @@
-function download(data, MIMEtype, filename) {
-    let fileData = new Blob([data], { type: MIMEtype })
+function download(data, mimeType, filename) {
+    let fileData = new Blob([data], { type: mimeType })
     let textFileUrl = URL.createObjectURL(fileData)
 
     let tagA = document.createElement('a')

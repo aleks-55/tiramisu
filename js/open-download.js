@@ -13,6 +13,11 @@ async function downloadTiramisu() {
 }
 
 function readTiramisuFile(file) {
+	if (file.type !== "text/html") {
+		console.error('Ошибка: данный файл не является HTML.')
+		return
+	}
+
 	const reader = new FileReader()
 	reader.onload = (e) => {
 		let data
