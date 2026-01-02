@@ -31,19 +31,31 @@ async function createPortableTiramisu() {
     // CSS
     // <link rel="stylesheet" href="https://example.com/file.css" type="text/css">
     let cssLinks = documentCopy.querySelectorAll('link[rel="stylesheet"]')
-    for (let link of cssLinks) {
-        let url = link.href
-        let response = await fetch(url)
-        let textCss = await response.text()
+    let arrPromiseCss = [...cssLinks].map(link => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let url = link.href
+                const response = await fetch(url)
+                if (!response.ok) {
+                    // reject(new Error('Ошибка загрузки файла ' + url))
+                    throw new Error('Ошибка загрузки файла ' + url)
+                }
+                const textCss = await response.text()
 
-        let cssTag = document.createElement('style')
-        cssTag.innerHTML = textCss
-        cssTag.dataset.file = url
-        documentCopy.head.append(cssTag)
-        link.remove()
-        console.log('Добавили в копию документа внешний файл: ' + url)
-    }
+                let cssTag = document.createElement('style')
+                cssTag.innerHTML = textCss
+                cssTag.dataset.file = url
+                link.after(cssTag)
+                link.remove()
 
+                console.log('Добавили в копию документа внешний файл: ' + url)
+                resolve()
+            } catch(error) {
+                reject(error)
+            } 
+        })
+    })
+    
     // JavaScript
     let scriptDB = documentCopy.getElementById('tiramisuJsonFile')
     scriptDB.innerHTML = 'let initDB = ' + tiramisuDB.toString()
@@ -51,29 +63,49 @@ async function createPortableTiramisu() {
 
     // <script src="...">
     let scripts = documentCopy.querySelectorAll('script[src]')
-    for (let script of scripts) {
-        let url = script.src
+    let arrPromiseScripts = [...scripts].map(tagScript => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let url = tagScript.src
+                const response = await fetch(url)
+                if (!response.ok) {
+                    // reject(new Error('Ошибка загрузки файла ' + url))
+                    throw new Error('Ошибка загрузки файла ' + url)
+                }
+                let textScript = await response.text()
 
-        let response = await fetch(url)
-        let textScript = await response.text()
+                tagScript.innerHTML = textScript
+                tagScript.removeAttribute('src')
+                tagScript.dataset.file = url
+                console.log('Добавили в копию документа внешний файл: ' + url)
 
-        script.innerHTML = textScript
-        script.removeAttribute('src')
-        script.dataset.file = url
-        console.log('Добавили в копию документа внешний файл: ' + url)
-    }
+                resolve()
+            } catch(error) {
+                reject(error)
+            } 
+        })
+    })
 
     // favicon
-    let elementFavicon = documentCopy.querySelector('link[rel="shortcut icon"]')
-    elementFavicon.href = await urlToBase64(elementFavicon.href)
-    console.log('Вставили base64 favicon')
+    let promiseFavicon = new Promise(async (resolve, reject) => {
+        let elementFavicon = documentCopy.querySelector('link[rel="shortcut icon"]')
+        elementFavicon.href = await urlToBase64(elementFavicon.href)
+        console.log('Вставили base64 favicon')
+        resolve()
+    })
+    
 
     // logo
-    let elementLogo = documentCopy.querySelector('div.logo img')
-    elementLogo.src = await urlToBase64(elementLogo.src)
-    console.log('Вставили base64 логотипа')
+    let promiseLogo = new Promise(async (resolve, reject) => {
+        let elementLogo = documentCopy.querySelector('div.logo img')
+        elementLogo.src = await urlToBase64(elementLogo.src)
+        console.log('Вставили base64 логотипа')
+        resolve()
+    })
     
     documentCopy.body.setAttribute('portable', 'true')
+
+    await Promise.all([...arrPromiseCss, ...arrPromiseScripts, promiseFavicon, promiseLogo])
     return documentToString(documentCopy)
 }
 
