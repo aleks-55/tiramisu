@@ -1,23 +1,29 @@
 // функция возвращает промис, который далее возвращает строку -
 // содержимое html-файла Tiramisu Portable
 async function createPortableTiramisu() {
+    // =========================================
     // ==== Для portable версии
     if (document.querySelector('body[portable="true"]')) {
-        let documentCopy = new DOMParser().parseFromString(document.querySelector('html').innerHTML, 'text/html')
+        let documentCopy = new DOMParser().parseFromString(document.documentElement.innerHTML, 'text/html')
         clearDocument(documentCopy)
 
         // обновляем базу данных в portabe файле
-        let scriptDB = documentCopy.getElementById('tiramisuJsonFile')
-        scriptDB.innerHTML = 'let initDB = ' + tiramisuDB.toString()
+        documentCopy.getElementById('tiramisuJsonFile').innerHTML = 'let initDB = ' + tiramisuDB.toString()
 
         return documentToString(documentCopy)
     }
 
+    // =========================================
     // ==== Для версии на ПК
-    if (location.protocol == 'file:') return
+    if (location.protocol == 'file:') return null
 
+    // =========================================
     // ==== Для версии на веб-сервере
     let response = await fetch(location.href)
+    if ( !response.ok) {
+        console.error('Ошибка при загрузке страницы ' + location.href)
+        return
+    }
     let text = await response.text()
     console.log('Загрузили страницу: ' + location.href)
     let documentCopy = new DOMParser().parseFromString(text, 'text/html')
